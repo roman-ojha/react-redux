@@ -1,0 +1,67 @@
+:root {
+  --main_color-: rgb(132, 132, 218);
+}
+
+.body_page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: var(--main_color-);
+  font-size: 40px;
+}
+h4 {
+  color: var(--main_color-);
+  font-size: 30px;
+  text-align: center;
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quentity_minus,
+.quentity_plus {
+  width: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+
+  background-color: var(--main_color-);
+  cursor: pointer;
+}
+
+.quentity_minus:hover,
+.quentity_plus:hover {
+  background-color: rgb(159, 159, 221);
+}
+
+.quentity_minus {
+  border-radius: 5px 0px 0px 5px;
+}
+.quentity_plus {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.input_field {
+  width: 80px;
+  height: 45px;
+  border-width: 5px 0px 5px 0px;
+  border-color: var(--main_color-);
+  border-radius: 0px;
+}
+.input_field:focus {
+  outline: none;
+}
+.input_field:read-write {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--main_color-);
+}
