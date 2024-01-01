@@ -1,0 +1,8 @@
+-> yarn install @reduxjs/toolkit
+
+*) App structure:
+    - app
+        - store.ts
+    - features (every feature the app have)
+        - cake
+        - icecream
