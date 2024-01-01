@@ -1,0 +1,5 @@
+-> now we have to shopkeepers:
+    1. solely responsible to handle cakes
+    2. solely responsible to handle ice creams
+-> NOTE that when a customer came and order for a cake in that case shopkeeper 1 will handle the request, he or she is only worried about the cakes on the shelf and is not bothered about shopkeeper 2 and same goes to shopkeeper 2 which only handle the ice creams
+-> NOTE that shopkeeper means reducer. so, here we are talking about creating multiple reducers
