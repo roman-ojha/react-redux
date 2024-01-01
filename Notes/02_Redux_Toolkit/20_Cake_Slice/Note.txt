@@ -1,0 +1,9 @@
+-> let's build a action and reducer for our cake feature
+-> https://redux.js.org/tutorials/essentials/part-2-app-structure
+*) App structure:
+    - app
+        - store.ts
+    - features (every feature the app have)
+        - cake (group together action and reducer logic of single feature in a single file, the feature should container 'Slice' as suffix, we we using 'slice' because whole application state is being distributed into slices and managed individually)
+            - cakeSlice.ts
+        - icecream
