@@ -1,14 +1,4 @@
-import {
-  configureStore,
-  bindActionCreators,
-  combineReducers,
-  applyMiddleware,
-  // https://redux.js.org/api/applymiddleware
-  Tuple,
-} from "@reduxjs/toolkit";
-import { createLogger } from "redux-logger";
-// initializing the redux logger
-const logger = createLogger();
+import { configureStore, bindActionCreators } from "@reduxjs/toolkit";
 
 type OrderCakeActionType = {
   type: "CAKE_ORDERED";
@@ -19,6 +9,7 @@ type RestockCakeActionType = {
   payload: number;
 };
 
+// Let's define the another 2 action type which will handel the ice cream order and restock
 type OrderIceCreamActionType = {
   type: "ICE_CREAM_ORDERED";
   payload: number;
@@ -42,6 +33,7 @@ function restockCake(payload: number = 1): RestockCakeActionType {
   };
 }
 
+// now create the action creator
 function orderIceCream(quantity = 1): OrderIceCreamActionType {
   return {
     type: "ICE_CREAM_ORDERED",
@@ -55,18 +47,22 @@ function restockIceCream(quantity = 1): RestockIceCreamAction {
   };
 }
 
-type CakeActionType = OrderCakeActionType | RestockCakeActionType;
+type ActionType =
+  | OrderCakeActionType
+  | RestockCakeActionType
+  | OrderIceCreamActionType
+  | RestockIceCreamAction;
 
-type IceCreamActionType = OrderIceCreamActionType | RestockIceCreamAction;
-
-const initialCakeState = {
+const initialState = {
   numOfCakes: 10,
+  numOfIceCreams: 20,
 };
 
-const cakeReducer = (
-  state = initialCakeState,
-  action: CakeActionType
-): typeof initialCakeState => {
+// First let's handle the Ice cream using the same reducer
+const reducer = (
+  state = initialState,
+  action: ActionType
+): typeof initialState => {
   switch (action.type) {
     case "CAKE_ORDERED":
       return {
@@ -78,20 +74,6 @@ const cakeReducer = (
         ...state,
         numOfCakes: state.numOfCakes + action.payload,
       };
-    default:
-      return state;
-  }
-};
-
-const initialIceCreamState = {
-  numOfIceCreams: 20,
-};
-
-const iceCreamReducer = (
-  state = initialIceCreamState,
-  action: IceCreamActionType
-): typeof initialIceCreamState => {
-  switch (action.type) {
     case "ICE_CREAM_ORDERED":
       return {
         ...state,
@@ -107,31 +89,18 @@ const iceCreamReducer = (
   }
 };
 
-const rootReducer = combineReducers({
-  cake: cakeReducer,
-  iceCream: iceCreamReducer,
-});
+// But when the application grows it is hard to handle all the actions by one reducer. so, rather we will split the one reducer into multiple reducer
+// handled multiple reducer on './index.ts'
 
-// Providing middleware into the store
-// https://redux-toolkit.js.org/api/configureStore
-// const store = configureStore({
-//   reducer: rootReducer,
-//   middleware: (getDefaultMiddleware) => {
-//     return getDefaultMiddleware().concat(logger as any);
-//   },
-// });
-const store = configureStore({
-  reducer: rootReducer,
-  middleware: () => new Tuple(logger as any),
-});
+const store = configureStore({ reducer: reducer });
 
-// console.log("Initial State: ", store.getState());
+console.log("Initial State: ", store.getState());
 
 const unsubscribe = store.subscribe(() => {
-  // now we don't need to log here because we have logged using logger middleware
-  // console.log("Updated State: ", store.getState());
+  console.log("Updated State: ", store.getState());
 });
 
+// Bind actions into actions creator
 const actions = bindActionCreators(
   { orderCake, restockCake, orderIceCream, restockIceCream },
   store.dispatch
@@ -142,6 +111,7 @@ actions.orderCake();
 actions.orderCake();
 actions.restockCake(3);
 
+// call the action
 actions.orderIceCream();
 actions.orderIceCream();
 actions.restockIceCream(2);

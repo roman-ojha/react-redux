@@ -3,7 +3,6 @@ import {
   bindActionCreators,
   combineReducers,
   applyMiddleware,
-  // https://redux.js.org/api/applymiddleware
   Tuple,
 } from "@reduxjs/toolkit";
 import { createLogger } from "redux-logger";
@@ -112,23 +111,16 @@ const rootReducer = combineReducers({
   iceCream: iceCreamReducer,
 });
 
-// Providing middleware into the store
-// https://redux-toolkit.js.org/api/configureStore
-// const store = configureStore({
-//   reducer: rootReducer,
-//   middleware: (getDefaultMiddleware) => {
-//     return getDefaultMiddleware().concat(logger as any);
-//   },
-// });
 const store = configureStore({
   reducer: rootReducer,
-  middleware: () => new Tuple(logger as any),
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(logger as any);
+  },
 });
 
 // console.log("Initial State: ", store.getState());
 
 const unsubscribe = store.subscribe(() => {
-  // now we don't need to log here because we have logged using logger middleware
   // console.log("Updated State: ", store.getState());
 });
 

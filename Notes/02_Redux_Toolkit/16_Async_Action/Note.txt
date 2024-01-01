@@ -1,0 +1,9 @@
+-> https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+*) Our Application
+    *> purpose: Fetches a list of users from a an api end points and stores it in the redux store.
+    *> State: './03_Our_State_Object.png'
+    *> Actions:  './04_Our_Actions.png'
+    *> Reducer: './05_Our_Reducer.png'
+    
+    -> './asyncActons.ts'
