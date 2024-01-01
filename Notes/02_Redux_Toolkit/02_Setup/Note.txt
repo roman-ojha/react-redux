@@ -1,0 +1,5 @@
+*) Setup:
+    1> yarn init -y
+    2> yarn add redux
+    3> Setup typescript
+    4> create './index.ts'
