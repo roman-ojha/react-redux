@@ -1,10 +1,1 @@
--> let's build a action and reducer for our cake feature
--> https://redux.js.org/tutorials/essentials/part-2-app-structure
--> './app/store.ts'
-*) App structure:
-    - app
-        - store.ts
-    - features
-        - cake
-            - cakeSlice.ts
-        - icecream
+-> './features/icecream', './app/store.ts', './index.ts'
