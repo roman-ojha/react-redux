@@ -16,6 +16,7 @@ type ActionType = {
   type: typeof CAKE_ORDERED;
 };
 
+// https://redux.js.org/tutorials/essentials/part-1-overview-concepts#reducers
 // Action only describe what happen but don't describe how application state changes, reducer are in charge of that
 
 // now, we need a state of the application

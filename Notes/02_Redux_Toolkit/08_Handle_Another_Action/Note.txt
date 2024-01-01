@@ -1,0 +1,3 @@
+-> './01_Store.png'
+-> Register listener view 'subscribe(listener)' method:
+    -> subscribe method accept function as the argument which will be executed anytime the state in the redux store changes

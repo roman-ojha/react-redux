@@ -12,6 +12,7 @@ const orderCakeActionObj = {
 
 // Action creator which will create the action
 // Action create is the function that return the action
+// https://redux.js.org/tutorials/essentials/part-1-overview-concepts#action-creators
 function orderCake() {
   return orderCakeActionObj;
 }
