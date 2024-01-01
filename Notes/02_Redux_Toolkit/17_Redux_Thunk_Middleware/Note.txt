@@ -1,0 +1,9 @@
+*) Package:
+    1. axios
+        -> yarn add axios
+        -> Requests to an api endpoints
+    2. redux-thunk
+        -> https://redux.js.org/usage/writing-logic-thunks
+        -> https://www.npmjs.com/package/redux-thunk
+        -> This is the package from redux ecosystem and is the standard way to create asynchronous action creator in you application
+        -> it is a middleware which we will apply to redux store
