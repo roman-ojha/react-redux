@@ -1,0 +1,4 @@
+-> https://redux.js.org/understanding/history-and-design/middleware#understanding-middleware
+-> https://redux-toolkit.js.org/usage/immer-reducers
+-> we can use redux middleware with 'redux-logger' package
+    -> https://www.npmjs.com/package/redux-logger
