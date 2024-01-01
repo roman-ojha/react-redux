@@ -1,6 +1,6 @@
 -> yarn install @reduxjs/toolkit
 
-*) App structure:
+*) App structure: https://redux.js.org/tutorials/essentials/part-2-app-structure
     - app
         - store.ts
     - features (every feature the app have)
