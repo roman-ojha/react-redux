@@ -1,0 +1,2 @@
+-> https://redux.js.org/usage/nextjs
+-> './src/StoreProvider.tsx', './src/main.tsx'
