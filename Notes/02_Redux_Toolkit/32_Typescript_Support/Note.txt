@@ -1,0 +1,1 @@
+-> './src/lib/features/user/userSlice.ts', './src/components'
